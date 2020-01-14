@@ -1,0 +1,46 @@
+<h1>TRANSFER</h1>
+<p>Debug ::: {{debugFrom}}</p>
+<!-- <app-pilihan-rekening></app-pilihan-rekening> -->
+<!-- <button class "btn btn-primary"> Transfer Sekarang</button> -->
+  <!-- (click)= lakukangTransfer()>
+  Transfer Sekarang</button> -->
+
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-6 control-label">Rekening Sumber</label>
+      <div class="col-sm-6">
+          <app-pilihan-rekening (pilihan)="transfer.sumberRekening=$event"></app-pilihan-rekening>
+      </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-6 control-label">Nama Rekening Sumber</label>
+        <div class="col-sm-6">
+          <p *ngIf="transfer.sumberRekening">{{transfer.sumberRekening.nama}}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-6 control-label">Rekening Tujuan</label>
+        <div class="col-sm-6">
+            <app-pilihan-rekening (pilihan)="transfer.tujuanRekening=$event"></app-pilihan-rekening>
+        </div>
+    </div>
+    <div>
+        <label class="col-sm-6 control-label">Nama Rekening Tujuan</label>
+        <div class="col-sm-6">
+          <p *ngIf="transfer.tujuanRekening">{{transfer.tujuanRekening.nama}}</p>
+        </div>
+    </div>
+    <div form-group>
+        <label class="col-sm-6 control-label">Nilai</label>
+        <div class="col-sm-6">
+          <input [(ngModel)]="transfer.nilai" name="nilai" class="form-control" placeholder="Rp.123.456,00">
+        </div>
+    </div>
+    <div form-group>
+        <label class="col-sm-6 control-label">Berita</label>
+        <div class="col-sm-6">
+          <input [(ngModel)]="transfer.berita" name="berita" class="form-control" placeholder="Berita">
+        </div>
+    </div>
+  </form>
+  <button type="submit" class="btn btn-primary" (click)='lakukangTransfer()'>Transfer</button>

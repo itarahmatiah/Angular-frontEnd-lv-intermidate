@@ -1,0 +1,19 @@
+<h1>Daftar Rekening</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nomor Rekening</th>
+            <th>Nama Rekening</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let rek of daftarRekening">
+            <th>{{rek.nomor}}</th>
+            <th>{{rek.nama}}</th>
+            <th><button class="btn btn-sm" (click)="tampilkanDetail(rek)">
+                detail</button>
+            </th>
+        </tr>
+    </tbody>
+</table>
